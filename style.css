@@ -1,0 +1,89 @@
+/* contra-ethos.com — the vibe of the retired Quartz site: one clay color plus tones */
+:root {
+  --ground: #262624;
+  --text: #C2C0B6;
+  --muted: #8F8D85;
+  --clay: #D97059;
+  --clay-light: #E8937F;
+  --clay-dark: #A85443;
+  --rule: #3A3936;
+  --body: 'Source Sans 3', 'Source Sans Pro', 'Segoe UI', system-ui, sans-serif;
+  --head: 'Schibsted Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--ground); }
+
+body {
+  margin: 0 auto;
+  max-width: 44rem;
+  min-height: 100vh;
+  padding: 2rem 1rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background: var(--ground);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 640px) {
+  body { padding: 2rem 1.5rem 3rem; }
+}
+
+a { color: var(--clay); text-decoration: none; }
+a:hover, a:focus-visible { color: var(--clay-light); }
+a:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+
+.wordmark {
+  display: inline-block;
+  padding: 0.75rem 0;
+  font-family: var(--head);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+main { flex: 1; display: flex; flex-direction: column; gap: 2.5rem; }
+
+h1, h2 {
+  margin: 0 0 1rem;
+  font-family: var(--head);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--clay);
+}
+h1 { font-size: 2.75rem; }
+h2 { font-size: 1.625rem; }
+
+blockquote {
+  margin: 0;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 3px solid var(--clay-dark);
+}
+blockquote p { margin: 0 0 1rem; }
+blockquote p:last-child { margin-bottom: 0; }
+
+.outline { margin: 0; padding: 0 0 0 1.25rem; list-style: disc; }
+.outline li { padding: 0.3rem 0; }
+.outline li::marker { color: var(--muted); }
+.outline a { overflow-wrap: anywhere; }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+footer a { font-family: var(--mono); font-size: 0.875rem; padding: 0.5rem 0; }

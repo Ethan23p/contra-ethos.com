@@ -71,6 +71,7 @@ blockquote p { margin: 0 0 1rem; }
 blockquote p:last-child { margin-bottom: 0; }
 
 .outline { margin: 0; padding: 0 0 0 1.25rem; list-style: disc; }
+blockquote + .outline { margin-top: 1rem; }
 .outline li { padding: 0.3rem 0; }
 .outline li::marker { color: var(--muted); }
 .outline a { overflow-wrap: anywhere; }

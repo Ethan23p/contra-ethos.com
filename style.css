@@ -76,6 +76,62 @@ blockquote + .outline { margin-top: 1rem; }
 .outline li::marker { color: var(--muted); }
 .outline a { overflow-wrap: anywhere; }
 
+/* Project cards: a stack of full- and half-width tiles */
+.cards { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 640px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+  .card--full { grid-column: 1 / -1; }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0 0 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  color: var(--text);
+}
+.card:hover, .card:focus-visible { color: var(--text); border-color: var(--clay-dark); }
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 0.6rem;
+  background: #000;
+}
+.card--full img { aspect-ratio: 5 / 2; }
+.card-title, .card-meta, .card-line { padding: 0 1rem; }
+.card-title { font-family: var(--head); font-weight: 700; font-size: 1.25rem; color: var(--clay); }
+.card:hover .card-title { color: var(--clay-light); }
+.card-meta { font-family: var(--mono); font-size: 0.8125rem; color: var(--muted); }
+.card--text { padding-top: 0.9rem; }
+.card-line { margin-top: 0.4rem; }
+
+/* Project pages */
+.project > * { margin: 0 0 1.25rem; }
+.project h1 { margin-bottom: 0.25rem; }
+.crumb, .meta { font-family: var(--mono); font-size: 0.875rem; }
+.crumb { margin-bottom: 0.75rem; }
+.meta { color: var(--muted); }
+.hero, .gallery figure { margin: 0 0 1.5rem; }
+.hero img, .gallery img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 75vh;
+  margin: 0 auto;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.gallery { display: grid; gap: 1rem; }
+@media (min-width: 640px) { .gallery { grid-template-columns: 1fr 1fr; } }
+.gallery figure { margin: 0; }
+.links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; padding: 0; list-style: none; font-family: var(--mono); font-size: 0.9375rem; }
+code { font-family: var(--mono); font-size: 0.9em; color: var(--clay-light); }
+
 footer {
   display: flex;
   justify-content: space-between;

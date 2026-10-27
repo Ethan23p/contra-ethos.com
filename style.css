@@ -129,7 +129,7 @@ blockquote + .outline { margin-top: 1rem; }
 .gallery { display: grid; gap: 1rem; }
 @media (min-width: 640px) { .gallery { grid-template-columns: 1fr 1fr; } }
 .gallery figure { margin: 0; }
-.links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; padding: 0; list-style: none; font-family: var(--mono); font-size: 0.9375rem; }
+.links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; padding: 0; list-style: none; font-family: var(--mono); font-size: 1.0625rem; }
 code { font-family: var(--mono); font-size: 0.9em; color: var(--clay-light); }
 
 footer {

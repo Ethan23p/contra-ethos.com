@@ -1,4 +1,4 @@
-"""Crop the AI Kassandra hero and card from the assessment-question screenshot.
+"""Crop the AI Kassandra hero, card and landing image from the Drive screenshots.
 
 Run once when the source image changes:
     uv run --with pillow python tools/crop_kassandra.py
@@ -6,10 +6,14 @@ Run once when the source image changes:
 from pathlib import Path
 from PIL import Image
 
-SRC = 'G:/My Drive/AI Cloud Resources/projects/AI_Kassandra ref/image_2026-04-24_082449075.png'
+REF = 'G:/My Drive/AI Cloud Resources/projects/AI_Kassandra ref/'
 OUT = Path(__file__).resolve().parents[2] / 'ethanporter.xyz' / 'images' / 'projects'
 
-im = Image.open(SRC).convert('RGB')
+# Landing page, below the browser chrome
+landing = Image.open(REF + 'image_2026-04-24_082234636.png').convert('RGB').crop((0, 87, 1291, 925))
+landing.save(OUT / 'ai-kassandra-landing.webp', quality=88, method=6)
+
+im = Image.open(REF + 'image_2026-04-24_082449075.png').convert('RGB')
 hero = im.crop((0, 87, 1280, 926))
 hero.save(OUT / 'ai-kassandra.webp', quality=88, method=6)
 card = im.crop((240, 150, 1040, 750))

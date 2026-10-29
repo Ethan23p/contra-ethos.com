@@ -18,34 +18,45 @@ URL = {'ce': 'https://contra-ethos.com', 'ep': 'https://ethanporter.xyz'}
 GH = 'https://github.com/Ethan23p/'
 MOVED = ['dkb-library', 'ai-kassandra', 'agent-dashboard']  # once on contra-ethos
 
+CODE = 'Source Code'
+
 GAMES_LINE = 'An attempt at a game with Tetris-like purity: one screen, a few fundamental elements, mechanics that come naturally, difficulty you can feel, room for skill, and actual fun.'
 
 P = [
-    dict(slug='dkb-library', site='ep', title='DKB Library', meta='Bun, TypeScript, SQLite, Claude Agent SDK · alpha · archived', layout='full', image=False,
+    dict(slug='dkb-library', site='ep', title='DKB Library', meta='Bun, TypeScript, SQLite, Claude Agent SDK · alpha · paused', layout='full', image=False,
          line="I didn't trust modern AI models to capture the full nuance of a given article or whitepaper, let alone a body of research, so I made an agentic system that sits atop my research and serves as my librarian, subject-matter expert, and data scientist.",
          note="This project was first shipped as my entry to a competition hosted by the Future of Life Foundation; now I've archived it as I develop a more general solution.",
-         links=[('Code', GH + 'dkb-library')]),
-    dict(slug='ai-kassandra', site='ep', title='AI Kassandra', meta='Gemini, Hono, TypeScript, SQLite · beta · archived', layout='half',
+         links=[('Read the write-up', 'https://ethan23p.github.io/dkb-library/'), ('See it working', 'https://ethan23p.github.io/dkb-library/showcase/'), (CODE, GH + 'dkb-library')]),
+    dict(slug='ai-kassandra', site='ep', title='AI Kassandra', meta='Gemini, Hono, TypeScript, SQLite · beta · paused', layout='half',
          line='I wanted an app that provided insight, validation, and confidence, like horoscopes do for some people, but based on data and personality psychology, instead of constellations.',
          alt='An AI Kassandra assessment question: a road trip hits a snag, with four ways to respond.',
-         links=[('Code', GH + 'AI_Kassandra')],
-         gallery=[('ai-kassandra-profile', 'A user profile showing Big Five scores as bars.')]),
-    dict(slug='agent-dashboard', site='ep', title='Agent Dashboard', meta='MCP, Python, Textual · alpha · archived', layout='half', pos='20% 50%',
+         caption='An assessment question. Each of the four answers nudges two Big Five traits.',
+         links=[(CODE, GH + 'AI_Kassandra')],
+         how=[('Assessment', 'Short, quirky scenarios with four responses each. Every scenario pairs two of the Big Five traits, and each response nudges the profile toward one combination of them.'),
+              ('Profile', 'Five trait scores between -1 and 1. Each response moves them a little less as the profile settles, and recent responses outweigh old ones, so it follows a person as they change.'),
+              ('Guidance', 'A short reframing aimed at the user, written by Gemini from their latest profile and the guidances they have already had.')],
+         gallery=[('ai-kassandra-profile', 'A user profile showing Big Five scores as bars.', 'A profile: the five trait scores the assessment has inferred.'),
+                  ('ai-kassandra-landing', 'AI Kassandra landing page: "The mirror you cannot break." with a Begin Assessment button.', 'The landing page.')]),
+    dict(slug='agent-dashboard', site='ep', title='Agent Dashboard', meta='MCP, Python, Textual · alpha · paused', layout='half', pos='20% 50%',
          line="Before I knew what a \"harness\" was, I needed a testbed for my crazy hypotheses about AI. Claude Code eventually stepped in, but this project is still in the back of my mind; I'll be returning to those hypotheses.",
          alt='Agent Dashboard running in a terminal: an agent list on the left, a conversation with the active agent on the right, and a prompt box below.',
-         links=[('Code', GH + 'agent-dashboard')]),
+         caption='Agents on the left, the active conversation on the right.',
+         links=[(CODE, GH + 'agent-dashboard')]),
     dict(slug='phosphor-sand', site='ce', title='Phosphor Sand', meta='Rust, WebGPU · alpha · active', layout='full', pos='50% 45%',
          line="I wanted to explore cellular automata and see if I could surprise myself - I managed to: today it has plants that transport energy, and soap that interacts with water and oil to create isolated bubbles much larger than a single cell. I'm still actively iterating on the concept.",
          alt='Phosphor Sand on a phone: a basin of water between sand slopes, with stone drawn into it and dark air bubbles scattered through the water, under a CRT scanline look.',
-         links=[('Play', 'https://sand.contra-ethos.com'), ('Code', GH + 'Phosphor-Sand')]),
+         caption='A basin of water between sand slopes, with air bubbles caught in it.',
+         links=[('Play', 'https://sand.contra-ethos.com'), (CODE, GH + 'Phosphor-Sand')]),
     dict(slug='gravity-blobs', site='ce', title='Gravity Blobs', meta='Rust, WebGPU · alpha · active', layout='half', pos='50% 62%',
          line=GAMES_LINE,
          alt='Gravity Blobs on a phone: numbered blobs clustered at the center of a circular arena, with the next blob aimed from the rim.',
-         links=[('Play', 'https://play.contra-ethos.com/blob/'), ('Code', GH + 'contra-ethos-games'), ('Original prototype', GH + 'Blob-Merge-Game')]),
+         caption='Numbered blobs gathered at the center of the arena, with the next one aimed from the rim. From the original prototype.',
+         links=[('Play', 'https://play.contra-ethos.com/blob/'), (CODE, GH + 'contra-ethos-games'), ('Original prototype', GH + 'Blob-Merge-Game')]),
     dict(slug='dice-merge', site='ce', title='Dice Merge Game', meta='Rust, WebGPU · alpha · active', layout='half', pos='50% 42%',
          line=GAMES_LINE,
          alt='Dice Merge Game: a five-by-five board holding dice valued one to four, a score of 90, and the next die below.',
-         links=[('Play', 'https://play.contra-ethos.com/dice/'), ('Code', GH + 'contra-ethos-games'), ('Original prototype', GH + 'Dice-Merge-Testbed')]),
+         caption='A five-by-five board of dice, a score of 90, and the next die below.',
+         links=[('Play', 'https://play.contra-ethos.com/dice/'), (CODE, GH + 'contra-ethos-games'), ('Original prototype', GH + 'Dice-Merge-Testbed')]),
     dict(slug='claude-code-plugins', site='ce', title='Claude Code plugins', meta='Claude Code, Claude Agent SDK, Logseq CLI', layout='full', image=False,
          line='These are simply the various things that were worth extending Claude Code with for my setup - they are not much, but a good demonstration of my working philosophy in agentic AI.',
          items=[('logseq-interface', 'agent access to my Logseq graph through its CLI'),
@@ -54,7 +65,7 @@ P = [
                 ('design-patterns', 'how to construct those tacit-knowledge skills'),
                 ('eval-harness', 'evaluate a system by having a real Claude instance operate it'),
                 ('mp-skills', "Matt Pocock's workflow skills, kept apart and credited to him")],
-         links=[('Code', GH + 'ethans-plugins_Claude-Code'), ("Matt Pocock's skills", 'https://github.com/mattpocock/skills')]),
+         links=[(CODE, GH + 'ethans-plugins_Claude-Code'), ("Matt Pocock's skills", 'https://github.com/mattpocock/skills')]),
 ]
 
 e = html.escape
@@ -113,6 +124,10 @@ def img(root, rel, alt, lazy=False):
     return f'<img src="/{rel}" alt="{e(alt)}" width="{w}" height="{h}"{l}>'
 
 
+def cap(text):
+    return f'<figcaption>{t(text)}</figcaption>' if text else ''
+
+
 def write(path, text):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, 'w', encoding='utf-8', newline='\n') as f:
@@ -127,15 +142,17 @@ def page(p):
     label = (lambda x: f'[{e(x)}]') if site == 'ce' else e
     out.append('<ul class="links">\n' + ''.join(f'<li><a href="{u}">{label(x)}</a></li>\n' for x, u in p['links']) + '</ul>\n')
     if p.get('image', True):
-        out.append(f'<figure class="hero">{img(root, "images/projects/" + p["slug"] + ".webp", p["alt"])}</figure>\n')
+        out.append(f'<figure class="hero">{img(root, "images/projects/" + p["slug"] + ".webp", p["alt"])}{cap(p.get("caption"))}</figure>\n')
     out.append(f"<blockquote>\n<p>{t(p['line'])}</p>\n</blockquote>\n")
     if p.get('note'):
         out.append(f"<p>{t(p['note'])}</p>\n")
     if p.get('items'):
         out.append('<ul class="outline">\n' + ''.join(f'<li><code>{e(n)}</code>: {t(d)}</li>\n' for n, d in p['items']) + '</ul>\n')
+    if p.get('how'):
+        out.append('<h2>How it works</h2>\n<ul class="outline">\n' + ''.join(f'<li><strong>{e(n)}.</strong> {t(d)}</li>\n' for n, d in p['how']) + '</ul>\n')
     if p.get('gallery'):
         out.append('<div class="gallery">\n' + ''.join(
-            f'<figure>{img(root, "images/projects/" + s + ".webp", a, lazy=True)}</figure>\n' for s, a in p['gallery']) + '</div>\n')
+            f'<figure>{img(root, "images/projects/" + s + ".webp", a, lazy=True)}{cap(c)}</figure>\n' for s, a, c in p['gallery']) + '</div>\n')
     out.append('</article>\n</main>\n\n' + FOOT[site] + '</body>\n</html>\n')
     write(f"{root}/projects/{p['slug']}/index.html", ''.join(out))
 

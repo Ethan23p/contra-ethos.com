@@ -26,9 +26,11 @@ P = [
     dict(slug='dkb-library', site='ep', title='DKB Library', meta='Bun, TypeScript, SQLite, Claude Agent SDK · alpha · paused', layout='full', image=False,
          line="I didn't trust modern AI models to capture the full nuance of a given article or whitepaper, let alone a body of research, so I made an agentic system that sits atop my research and serves as my librarian, subject-matter expert, and data scientist.",
          note="This project was first shipped as my entry to a competition hosted by the Future of Life Foundation; now I've archived it as I develop a more general solution.",
+         built='An AI system that reads, retrieves, and synthesizes information across a body of research. It maintains the source data verbatim, then enables your AI agent to be a dutiful librarian, a subject-matter expert, or a data scientist, on demand.',
          links=[('Read the write-up', 'https://ethan23p.github.io/dkb-library/'), ('See it working', 'https://ethan23p.github.io/dkb-library/showcase/'), (CODE, GH + 'dkb-library')]),
     dict(slug='ai-kassandra', site='ep', title='AI Kassandra', meta='Gemini, Hono, TypeScript, SQLite · beta · paused', layout='half',
          line='I wanted an app that provided insight, validation, and confidence, like horoscopes do for some people, but based on data and personality psychology, instead of constellations.',
+         built="A fully featured web app that supports many users by delivering them personalized guidance on a daily basis. These daily insights are comparable to horoscopes, but instead of being based on constellations, they're based on personality science and AI. The app supports multifaceted personality quizzes, gives real-time feedback on users' own personalities, and would regularly deliver insights straight to users' inboxes.",
          alt='An AI Kassandra assessment question: a road trip hits a snag, with four ways to respond.',
          caption='An assessment question. Each of the four answers nudges two Big Five traits.',
          links=[(CODE, GH + 'AI_Kassandra')],
@@ -36,7 +38,7 @@ P = [
               ('Profile', 'Five trait scores between -1 and 1. Each response moves them a little less as the profile settles, and recent responses outweigh old ones, so it follows a person as they change.'),
               ('Guidance', 'A short reframing aimed at the user, written by Gemini from their latest profile and the guidances they have already had.')],
          gallery=[('ai-kassandra-profile', 'A user profile showing Big Five scores as bars.', 'A profile: the five trait scores the assessment has inferred.'),
-                  ('ai-kassandra-landing', 'AI Kassandra landing page: "The mirror you cannot break." with a Begin Assessment button.', 'The landing page.')]),
+                  ('ai-kassandra-landing', 'AI Kassandra landing page: "Daily insights, tailored to your personality." with a Begin Assessment button.', 'The landing page.')]),
     dict(slug='agent-dashboard', site='ep', title='Agent Dashboard', meta='MCP, Python, Textual · alpha · paused', layout='half', pos='20% 50%',
          line="Before I knew what a \"harness\" was, I needed a testbed for my crazy hypotheses about AI. Claude Code eventually stepped in, but this project is still in the back of my mind; I'll be returning to those hypotheses.",
          alt='Agent Dashboard running in a terminal: an agent list on the left, a conversation with the active agent on the right, and a prompt box below.',
@@ -146,6 +148,8 @@ def page(p):
     out.append(f"<blockquote>\n<p>{t(p['line'])}</p>\n</blockquote>\n")
     if p.get('note'):
         out.append(f"<p>{t(p['note'])}</p>\n")
+    if p.get('built'):
+        out.append(f"<p><strong>What I built:</strong> {t(p['built'])}</p>\n")
     if p.get('items'):
         out.append('<ul class="outline">\n' + ''.join(f'<li><code>{e(n)}</code>: {t(d)}</li>\n' for n, d in p['items']) + '</ul>\n')
     if p.get('how'):

@@ -1,4 +1,7 @@
-"""Crop the AI Kassandra hero, card and landing image from the Drive screenshots.
+"""Crop the AI Kassandra hero and card image from the Drive screenshots.
+
+The landing image is not made here: it is a 1291x838 headless capture of a local
+copy with the revised headline and description (2026-10-29).
 
 Run once when the source image changes:
     uv run --with pillow python tools/crop_kassandra.py
@@ -8,10 +11,6 @@ from PIL import Image
 
 REF = 'G:/My Drive/AI Cloud Resources/projects/AI_Kassandra ref/'
 OUT = Path(__file__).resolve().parents[2] / 'ethanporter.xyz' / 'images' / 'projects'
-
-# Landing page, below the browser chrome
-landing = Image.open(REF + 'image_2026-04-24_082234636.png').convert('RGB').crop((0, 87, 1291, 925))
-landing.save(OUT / 'ai-kassandra-landing.webp', quality=88, method=6)
 
 im = Image.open(REF + 'image_2026-04-24_082449075.png').convert('RGB')
 hero = im.crop((0, 87, 1280, 926))

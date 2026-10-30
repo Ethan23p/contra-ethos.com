@@ -23,7 +23,7 @@ CODE = 'Source Code'
 GAMES_LINE = 'An attempt at a game with Tetris-like purity: one screen, a few fundamental elements, mechanics that come naturally, difficulty you can feel, room for skill, and actual fun.'
 
 P = [
-    dict(slug='dkb-library', site='ep', title='DKB Library', meta='Bun, TypeScript, SQLite, Claude Agent SDK · alpha · paused', layout='full', image=False,
+    dict(slug='dkb-library', site='ep', title='DKB Library', subtitle='Durable Knowledge Bases', meta='Bun, TypeScript, SQLite, Claude Agent SDK · alpha · paused', layout='full', image=False,
          line="I didn't trust modern AI models to capture the full nuance of a given article or whitepaper, let alone a body of research, so I made an agentic system that sits atop my research and serves as my librarian, subject-matter expert, and data scientist.",
          note="This project was first shipped as my entry to a competition hosted by the Future of Life Foundation; now I've paused it as I develop a more general solution.",
          built='An AI system that reads, retrieves, and synthesizes information across a body of research. It maintains the source data verbatim, then enables your AI agent to be a dutiful librarian, a subject-matter expert, or a data scientist, on demand.',
@@ -140,7 +140,10 @@ def page(p):
     site, root = p['site'], ROOT[p['site']]
     out = [head(site, f"{p['title']} · {WORDMARK[site]}", p['line']), '\n<main>\n<article class="project">\n']
     out.append(f'<p class="crumb"><a href="/#projects">{CRUMB[site]}</a></p>\n')
-    out.append(f"<h1>{e(p['title'])}</h1>\n<p class=\"meta\">{e(p['meta'])}</p>\n")
+    out.append(f"<h1>{e(p['title'])}</h1>\n")
+    if p.get('subtitle'):
+        out.append(f"<p class=\"subtitle\">{t(p['subtitle'])}</p>\n")
+    out.append(f"<p class=\"meta\">{e(p['meta'])}</p>\n")
     label = (lambda x: f'[{e(x)}]') if site == 'ce' else e
     out.append('<ul class="links">\n' + ''.join(f'<li><a href="{u}">{label(x)}</a></li>\n' for x, u in p['links']) + '</ul>\n')
     if p.get('image', True):

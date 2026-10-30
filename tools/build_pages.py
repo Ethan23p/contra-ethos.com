@@ -25,7 +25,7 @@ GAMES_LINE = 'An attempt at a game with Tetris-like purity: one screen, a few fu
 P = [
     dict(slug='dkb-library', site='ep', title='DKB Library', meta='Bun, TypeScript, SQLite, Claude Agent SDK · alpha · paused', layout='full', image=False,
          line="I didn't trust modern AI models to capture the full nuance of a given article or whitepaper, let alone a body of research, so I made an agentic system that sits atop my research and serves as my librarian, subject-matter expert, and data scientist.",
-         note="This project was first shipped as my entry to a competition hosted by the Future of Life Foundation; now I've archived it as I develop a more general solution.",
+         note="This project was first shipped as my entry to a competition hosted by the Future of Life Foundation; now I've paused it as I develop a more general solution.",
          built='An AI system that reads, retrieves, and synthesizes information across a body of research. It maintains the source data verbatim, then enables your AI agent to be a dutiful librarian, a subject-matter expert, or a data scientist, on demand.',
          links=[('Read the write-up', 'https://ethan23p.github.io/dkb-library/'), ('See it working', 'https://ethan23p.github.io/dkb-library/showcase/'), (CODE, GH + 'dkb-library')]),
     dict(slug='ai-kassandra', site='ep', title='AI Kassandra', meta='Gemini, Hono, TypeScript, SQLite · beta · paused', layout='half',
